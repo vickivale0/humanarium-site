@@ -46,6 +46,12 @@
   .foreword{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;line-height:1.7;color:var(--ink-soft);border-left:2px solid var(--neon);padding-left:24px;margin-bottom:clamp(38px,5vh,56px);}
   .foreword p{margin-bottom:15px;}
   .foreword .sign{font-style:normal;font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.16em;font-size:.7rem;color:var(--ink);margin-bottom:0;}
+  .spec{margin:6px 0 30px;border-top:1px solid var(--rule);}
+  .spec .row{display:flex;align-items:baseline;gap:20px;padding:13px 0;border-bottom:1px solid var(--rule);}
+  .spec .k{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.15em;font-size:.66rem;color:var(--ink-soft);flex:0 0 110px;}
+  .spec .v{font-size:1.02rem;line-height:1.55;}
+  .spec .sw{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:middle;margin-right:9px;border:1px solid var(--rule);}
+  @media(max-width:560px){.spec .row{flex-direction:column;gap:5px;}.spec .k{flex:none;}}
 
   /* EMBLEM */
   .art-emblem{position:relative;width:78px;margin-bottom:clamp(28px,4vh,42px);}
@@ -106,9 +112,15 @@
 
       <p class="pq">Design is an argument you make <span class="neon">before</span> anyone has read a word.</p>
 
-      <p>We started with paper. Not pure white — pure white is clinical, the white of forms and waiting rooms — but a warm, soft white, the colour of good stock under a reading lamp. Over everything we laid the faintest grain, the tooth of a page that has been printed rather than rendered. Our reference was never another website. It was the poster in the window of a downtown bookshop; the programme handed to you at a small theatre — things that assume you can read, that you have time, that you came to be among people. I have spent years with medieval manuscripts, and what stays with me is never the information. It is the evidence of the hand — the warmth of someone having been there, on the page, for you.</p>
+      <p>If you like the specifics, here is the actual build — colours first, then type.</p>
 
-      <p>Then, two voices. For the words that carry feeling, a warm literary serif with a little idiosyncrasy in its bones. For the words that carry fact — the dates, the numbers, the labels — a precise monospace, the typeface of the lab and the field note. I wanted the tension between them: a humanist who keeps a research ledger; a research institute that has not forgotten it is run by people. That pairing is the whole personality of the brand, in two fonts.</p>
+      <div class="spec">
+        <div class="row"><span class="k">Paper</span><span class="v"><span class="sw" style="background:#F8F7F2"></span>#F8F7F2 — a warm off-white, the colour of good stock under a lamp; never the clinical white of forms.</span></div>
+        <div class="row"><span class="k">Ink</span><span class="v"><span class="sw" style="background:#1E1A16"></span>#1E1A16 — a soft, warm near-black. Kinder to the eye than pure black.</span></div>
+        <div class="row"><span class="k">Accent</span><span class="v"><span class="sw" style="background:#FF5A26"></span>#FF5A26 — the “oxytocin” orange. One colour, used rarely, always glowing faintly.</span></div>
+        <div class="row"><span class="k">Display</span><span class="v">Fraunces — a literary serif with a little idiosyncrasy, for the words that carry feeling.</span></div>
+        <div class="row"><span class="k">Labels</span><span class="v">Spline Sans Mono — the typeface of the lab and the field note, for dates, numbers, and facts.</span></div>
+      </div>
 
       <p>And one colour. This was the decision I cared about most. The accent of a club built on human connection should, I thought, be oxytocin — the hormone of touch and trust, the warmth you feel when someone you love walks into the room. There is only one problem: oxytocin is colourless. It is a small, clear peptide; it has no colour at all. I did not want to pretend otherwise, because the whole point of this place is to be honest — about machines, and about ourselves. So we did not colour the molecule. We coloured the feeling. We gave the warmth a colour — a soft, almost neon orange — and we let it behave like warmth: used rarely, never filling the room, always glowing faintly, breathing in and out behind the words like body heat, like a pulse.</p>
 
