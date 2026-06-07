@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Say Hello — Humanarium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .mono{font-family:'Spline Sans Mono',monospace;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+
+  /* MASTHEAD */
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:24px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+
+  /* MOLECULE FEATURE */
+  .mol-feature{position:relative;display:flex;justify-content:center;padding:clamp(54px,9vh,104px) 0 clamp(8px,2vh,18px);overflow:hidden;}
+  .mol-feature .glow{position:absolute;width:min(86vw,720px);height:min(70vw,460px);border-radius:50%;background:radial-gradient(circle,var(--neon) 0%, var(--glow) 32%, rgba(255,90,38,0) 68%);filter:blur(54px);opacity:.26;top:52%;left:50%;transform:translate(-50%,-50%);animation:breathe 8s ease-in-out infinite;pointer-events:none;z-index:0;}
+  @keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.22}50%{transform:translate(-50%,-50%) scale(1.08);opacity:.34}}
+  .mol-feature svg{position:relative;z-index:1;width:min(86vw,420px);height:auto;}
+  .mol line,.mol circle{stroke:var(--neon);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .mol circle.fill{fill:var(--neon);stroke:none;}
+
+  /* HEADER */
+  .chead{text-align:center;padding:0 0 clamp(40px,6vh,64px);}
+  .chead .kicker{color:var(--neon);display:inline-block;margin-bottom:22px;}
+  .chead h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.8rem,8vw,5.4rem);line-height:.98;letter-spacing:-0.012em;margin-bottom:22px;}
+  .chead h1 em{font-style:italic;color:var(--neon);}
+  .chead .sub{font-size:clamp(1.12rem,2.2vw,1.4rem);color:var(--ink-soft);max-width:46ch;margin:0 auto;}
+
+  /* FORM */
+  .form-wrap{max-width:600px;margin:0 auto;padding:0 clamp(22px,5vw,40px) clamp(70px,11vh,130px);}
+  form{display:grid;gap:30px;}
+  .field{display:grid;gap:9px;}
+  .field label{color:var(--ink-soft);}
+  .field input,.field textarea{
+    font-family:'Fraunces',serif;font-size:1.1rem;color:var(--ink);
+    background:transparent;border:none;border-bottom:1.5px solid var(--rule);
+    padding:10px 2px;outline:none;transition:border-color .3s ease;width:100%;resize:vertical;
+  }
+  .field input:focus,.field textarea:focus{border-bottom-color:var(--neon);}
+  .field textarea{min-height:120px;line-height:1.5;}
+  .field input::placeholder,.field textarea::placeholder{color:var(--ink-soft);opacity:.55;}
+  .submit-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:6px;}
+  button.btn{background:var(--neon);color:#fff;font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;border:none;cursor:pointer;padding:15px 30px;transition:transform .25s ease,box-shadow .25s ease;box-shadow:0 0 0 rgba(255,90,38,0);}
+  button.btn:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(255,90,38,.32);}
+  .or-email{color:var(--ink-soft);font-size:1.02rem;}
+  .or-email a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .or-email a:hover{color:var(--neon);}
+  .thanks{display:none;text-align:center;padding:30px 0;}
+  .thanks .display{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-style:italic;font-size:clamp(1.7rem,4.5vw,2.6rem);color:var(--ink);margin-bottom:10px;}
+  .thanks p{color:var(--ink-soft);}
+
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+  @media(prefers-reduced-motion:reduce){.mol-feature .glow{animation:none}}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="index.html">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html">Journal</a>
+        <a href="contact.html" class="current">Contact</a>
+        <a href="index.html#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="mol-feature">
+    <span class="glow"></span>
+    <svg class="mol" viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="210.0" y1="130.0" x2="180.6" y2="113.0" stroke-width="1.5"/><line x1="180.6" y1="113.0" x2="180.6" y2="79.0" stroke-width="1.5"/><line x1="180.6" y1="79.0" x2="210.0" y2="62.0" stroke-width="1.5"/><line x1="210.0" y1="62.0" x2="239.4" y2="79.0" stroke-width="1.5"/><line x1="239.4" y1="79.0" x2="239.4" y2="113.0" stroke-width="1.5"/><line x1="239.4" y1="113.0" x2="210.0" y2="130.0" stroke-width="1.5"/><line x1="36.0" y1="120.0" x2="60.0" y2="104.0" stroke-width="1.5"/><line x1="41.5" y1="119.0" x2="56.9" y2="108.7" stroke-width="1.1"/><line x1="60.0" y1="104.0" x2="84.0" y2="120.0" stroke-width="1.5"/><line x1="84.0" y1="120.0" x2="108.0" y2="104.0" stroke-width="1.5"/><line x1="108.0" y1="104.0" x2="132.0" y2="120.0" stroke-width="1.5"/><line x1="111.1" y1="108.7" x2="126.5" y2="119.0" stroke-width="1.1"/><line x1="132.0" y1="120.0" x2="156.0" y2="104.0" stroke-width="1.5"/><line x1="156.0" y1="104.0" x2="180.6" y2="79.0" stroke-width="1.5"/><line x1="239.4" y1="113.0" x2="252.0" y2="112.0" stroke-width="1.5"/><line x1="252.0" y1="112.0" x2="276.0" y2="98.0" stroke-width="1.5"/><line x1="276.0" y1="98.0" x2="300.0" y2="112.0" stroke-width="1.5"/><line x1="279.2" y1="102.4" x2="294.6" y2="111.4" stroke-width="1.1"/><line x1="300.0" y1="112.0" x2="322.0" y2="98.0" stroke-width="1.5"/><line x1="60.0" y1="104.0" x2="60.0" y2="80.0" stroke-width="1.5"/><line x1="108.0" y1="104.0" x2="108.0" y2="80.0" stroke-width="1.5"/><line x1="132.0" y1="120.0" x2="132.0" y2="144.0" stroke-width="1.5"/><line x1="252.0" y1="112.0" x2="252.0" y2="136.0" stroke-width="1.5"/><line x1="300.0" y1="112.0" x2="300.0" y2="136.0" stroke-width="1.5"/><circle cx="36.0" cy="120.0" r="2.7" class="fill"/><circle cx="60.0" cy="104.0" r="2.7"/><circle cx="84.0" cy="120.0" r="2.7" class="fill"/><circle cx="108.0" cy="104.0" r="2.7"/><circle cx="132.0" cy="120.0" r="2.7" class="fill"/><circle cx="156.0" cy="104.0" r="2.7"/><circle cx="36.0" cy="120.0" r="3.1"/><circle cx="210.0" cy="130.0" r="2.7" class="fill"/><circle cx="180.6" cy="113.0" r="2.7"/><circle cx="180.6" cy="79.0" r="2.7" class="fill"/><circle cx="210.0" cy="62.0" r="2.7"/><circle cx="239.4" cy="79.0" r="2.7" class="fill"/><circle cx="239.4" cy="113.0" r="2.7"/><circle cx="210.0" cy="130.0" r="3.6"/><circle cx="239.4" cy="113.0" r="3.6"/><circle cx="252.0" cy="112.0" r="2.7" class="fill"/><circle cx="276.0" cy="98.0" r="2.7"/><circle cx="300.0" cy="112.0" r="2.7" class="fill"/><circle cx="322.0" cy="98.0" r="2.7"/><circle cx="322.0" cy="98.0" r="3.1"/><circle cx="60.0" cy="80.0" r="2.4" class="fill"/><circle cx="108.0" cy="80.0" r="2.4" class="fill"/><circle cx="132.0" cy="144.0" r="2.4" class="fill"/><circle cx="252.0" cy="136.0" r="2.4" class="fill"/><circle cx="300.0" cy="136.0" r="2.4" class="fill"/></svg>
+  </section>
+
+  <section class="chead">
+    <div class="wrap">
+      <span class="kicker label">Contact</span>
+      <h1>Say <em>hello.</em></h1>
+      <p class="sub">Leave your email, or write us a note. We read everything — and we'd love to know who's out there.</p>
+    </div>
+  </section>
+
+  <section class="form-wrap">
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="hidden" name="_subject" value="New note via humanarium.co">
+      <div class="field">
+        <label class="label" for="name">Your name <span style="text-transform:none;letter-spacing:0;opacity:.6">(optional)</span></label>
+        <input id="name" name="name" type="text" placeholder="Jane Doe">
+      </div>
+      <div class="field">
+        <label class="label" for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label class="label" for="message">A note <span style="text-transform:none;letter-spacing:0;opacity:.6">(optional)</span></label>
+        <textarea id="message" name="message" placeholder="Tell us what brought you here…"></textarea>
+      </div>
+      <div class="submit-row">
+        <button type="submit" class="btn">Send</button>
+        <span class="or-email">or write to <a href="mailto:hello@humanarium.co">hello@humanarium.co</a></span>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <div class="display">Thank you.</div>
+      <p>Your note is on its way. We'll be in touch.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="index.html">Home</a> · <a href="journal.html">Journal</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const thanks = document.getElementById('thanks');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    // Fallback: if Formspree endpoint not yet configured, open the user's email client
+    if (form.action.includes('YOUR_FORM_ID')) {
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const email = encodeURIComponent(document.getElementById('email').value || '');
+      const msg = encodeURIComponent(document.getElementById('message').value || '');
+      const body = `Name: ${decodeURIComponent(name)}%0D%0AEmail: ${decodeURIComponent(email)}%0D%0A%0D%0A${decodeURIComponent(msg)}`;
+      window.location.href = `mailto:hello@humanarium.co?subject=New%20note%20via%20humanarium.co&body=${body}`;
+      return;
+    }
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (res.ok) { form.style.display = 'none'; thanks.style.display = 'block'; }
+      else { alert('Something went wrong — please email hello@humanarium.co'); }
+    } catch (err) {
+      alert('Something went wrong — please email hello@humanarium.co');
+    }
+  });
+</script>
+</body>
+</html>
