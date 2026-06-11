@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnifica Humanitas: Why Is the Vatican Challenging Silicon Valley? — Humanarium Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .mono{font-family:'Spline Sans Mono',ui-monospace,monospace;}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+
+  /* MASTHEAD */
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:26px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+
+  /* ARTICLE */
+  .article{max-width:720px;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(22px,5vw,40px) clamp(60px,9vh,110px);}
+  .back{color:var(--ink-soft);text-decoration:none;display:inline-block;margin-bottom:clamp(34px,5vh,54px);}
+  .back:hover{color:var(--neon);}
+  .art-kicker{color:var(--neon);display:inline-block;margin-bottom:26px;}
+  .article h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.02;letter-spacing:-0.012em;margin-bottom:26px;}
+  .dek{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 72;font-size:clamp(1.25rem,3vw,1.7rem);color:var(--ink-soft);line-height:1.32;margin-bottom:34px;max-width:36ch;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:clamp(40px,6vh,60px);}
+  .meta .by{color:var(--ink);}
+  .body-copy p{font-size:1.16rem;line-height:1.72;margin-bottom:26px;}
+  .body-copy p.first::first-letter{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;color:var(--neon);font-size:3.3em;line-height:.72;float:left;padding:10px 14px 0 0;font-weight:500;}
+  .body-copy a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .body-copy a:hover{color:var(--neon);}
+  .body-copy h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72,'WONK' 1;font-weight:430;font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.12;letter-spacing:-0.01em;margin:clamp(36px,5.5vh,54px) 0 18px;}
+  .body-copy ul{list-style:none;margin:0 0 28px;}
+  .body-copy li{font-size:1.1rem;line-height:1.5;padding:11px 0 11px 22px;border-bottom:1px solid var(--rule);position:relative;}
+  .body-copy li:first-child{border-top:1px solid var(--rule);}
+  .body-copy li::before{content:'';position:absolute;left:2px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--neon);}
+  .pq{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 4;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.2vw,2.4rem);line-height:1.16;color:var(--ink);margin:clamp(40px,6vh,60px) 0;padding-left:26px;border-left:2px solid var(--neon);max-width:26ch;}
+  .pq .neon{color:var(--neon);}
+  .endmark{margin:clamp(44px,6vh,64px) 0 0;padding-top:30px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:1.04rem;}
+  .endmark a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .endmark a:hover{color:var(--neon);}
+
+  /* FOOTER */
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="/">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html" class="current">Journal</a>
+        <a href="contact.html">Contact</a>
+        <a href="/#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article">
+    <a href="journal.html" class="back label">← The Journal</a>
+    <span class="art-kicker label">On Power &amp; AI</span>
+    <h1>Magnifica Humanitas: Why Is the Vatican Challenging Silicon Valley?</h1>
+    <p class="dek">When Pope Leo XIV delivered his first major encyclical, he was flanked not by a cardinal but by an Anthropic co-founder. A reading of the 43,000-word text that treats artificial intelligence as a question of civilization, not engineering.</p>
+    <div class="meta label">
+      <span class="by">By Çiğdem Öztabak · Founder</span>
+      <span>Aposto News · May 31, 2026</span>
+      <span>6 min read</span>
+    </div>
+
+    <div class="body-copy">
+      <p class="first">On May 25, an unusual image from the Vatican made headlines around the world. When Pope Leo XIV ascended the pulpit to deliver his first major encyclical, he was accompanied not by a cardinal, a head of state, or a diplomat, but by Christopher Olah, one of the co-founders of Anthropic — a company at the forefront of the artificial intelligence race. That single image is almost enough to tell you what the text is about: it lifts artificial intelligence out of the realm of technology companies, engineers, and investors alone.</p>
+
+      <p>As one of the world's largest religious institutions, the Vatican is placing itself at the center of a much larger debate — about how humanity will redefine itself — and it frames that debate across a wide arc, from the legend of the Tower of Babel to the rebuilding of Jerusalem, all the way to Tolkien's <em>The Lord of the Rings</em>.</p>
+
+      <p>The roughly 43,000-word text is called <em>Magnifica Humanitas</em> — "Magnificent Humanity." It reads artificial intelligence not as a mere technical innovation but as a philosophical and moral question that calls us to rethink what it means to be human, and what human dignity means. Across a frame stretching from modern literature to theology, from historical example to today's technology companies, it debates the future of human dignity and human will.</p>
+
+      <p>The encyclical builds its argument through Tolkien's ring. When a power great enough to transform — even swallow — all of humanity gathers in the hands of a particular few, who can be trusted to carry it? And how should such a ring, now turned into a magic wand, be carried at all?</p>
+
+      <p>To understand why the question matters, it helps to look back. Popes are often remembered for what they say precisely when the world is changing at its roots; the Church's social encyclicals are read as official positions on how technological, environmental, or economic change touches human life. One of the most famous is <em>Rerum Novarum</em> (1891), which — in a world being remade by the Industrial Revolution — argued for workers' rights, the value of labor, and economic justice, and became a cornerstone of modern Catholic social teaching.</p>
+
+      <p>Neither the new Pope's chosen name nor the timing is a coincidence. Leo XIV released his encyclical on artificial intelligence to coincide with the 135th anniversary of that earlier text. The message is clear enough: in the 19th century one had to defend the human being and human labor against factories and machines; today the same question returns, this time against algorithms and AI systems. That is why what sits at the encyclical's center is not technology, but power.</p>
+
+      <p class="pq">The problem is not technology. It is <span class="neon">in whose hands</span> the power is gathered.</p>
+
+      <h2>Babel and Jerusalem</h2>
+      <p>The Pope builds his message on two ancient stories. The first is the Tower of Babel — the tale in which humans build a tower to reach the heavens and end up unable to understand one another. In his reading, Babel is not only a symbol of hubris; it is a metaphor for systems that compress everyone into a single way of thinking, a single notion of efficiency, a single algorithmic language. When a person's worth is defined not by creativity, fragility, or moral capacity but by measurable output, what emerges is a world that is technically impressive yet humanly impoverished.</p>
+
+      <p>Against this stands a second story: the rebuilding of Jerusalem's ruined walls, where the city is raised not by one person but through the shared labor of many families. Responsibility is distributed — which is to say, power is distributed — and the city rises through common participation. That contrast is the encyclical's core argument. The problem is not technology; it is in whose hands technological power is concentrated, and to what ends.</p>
+
+      <p>It is hard to ignore the <em>Lord of the Rings</em> reference here. In the story, the most interesting characters are not the villains who want the ring, but those who believe they could use it for good. Boromir proposes wielding its power against the enemy; Gandalf refuses it; Galadriel steps back for the same reason. The issue is never the ring falling into evil hands — it is that a power this great should rest in any hands at all.</p>
+
+      <p>Today much of Silicon Valley argues that, with adequate safeguards and the right governance, AI can produce enormous benefits. The Pope asks a different, almost never-asked question: isn't the very centralization of such great power a risk in itself?</p>
+
+      <p>So the encyclical does not stay theoretical. It opposes autonomous weapons and argues that lethal decisions must not be left to machines. It states plainly that concentrating data, algorithms, and digital infrastructure in a few companies' control creates new inequalities. And it works to make visible the millions of low-paid data workers who train these systems — the unseen laborers of the digital economy.</p>
+
+      <h2>The chapters of Magnifica Humanitas</h2>
+      <p>The 43,000-word encyclical runs as follows:</p>
+      <ul>
+        <li>Introduction: The "Res Novae" (New Things) of Our Time</li>
+        <li>Two Ancient Images: Babel and the Common Good</li>
+        <li>The Centralization of Digital Power</li>
+        <li>Artificial Intelligence: A Valuable Tool, or a New Center of Power?</li>
+        <li>Transhumanism and the Promises of a Post-Human Future</li>
+        <li>The Limits and Greatness of the Human Person</li>
+        <li>Truth, Work, and Freedom</li>
+        <li>Human Dignity in the Digital Age</li>
+        <li>Artificial Intelligence and the Question of Labor</li>
+        <li>War, Power, and Algorithms</li>
+        <li>Building a Civilization of Love</li>
+        <li>The Common Good in the Age of AI</li>
+      </ul>
+
+      <p>It also emerged that, before the encyclical's release, there was intense diplomatic traffic between the Vatican and Silicon Valley. According to <em>Business Insider</em>, representatives of Meta, Google, Amazon, and OpenAI met Church officials in April, in closed-door meetings at France's embassy to the Vatican. The first item on the agenda was children's online safety, but it soon widened into AI's effects on society, regulatory models, and the ethical limits of technology.</p>
+
+      <p>The timing is striking, coinciding with the period when Leo XIV was preparing this encyclical. His real concern is not that machines will become conscious, but that human beings are increasingly handing their own consciousness, judgment, and moral responsibility to ever-larger systems. That is why, in the end, the text turns not to technology but to the human being: fair wages and humane work remain indispensable; no technology can erase human dignity; our worth is greater than our performance; and human life, in all its fragility, is beautiful.</p>
+
+      <p>Perhaps, in the age of artificial intelligence, the real task is not to build algorithms that perform ever better — nor even to fold these technologies into our relationships — but to discover new ways of remembering what it means to remain human, and to share them with one another.</p>
+
+      <div class="endmark">
+        Originally published in <a href="https://aposto.com/s/magnifica-humanitas-vatikan-silikon-vadisine-neden-meydan" target="_blank" rel="noopener">Aposto News</a>, May 31, 2026. By Çiğdem Öztabak, Founder of Humanarium. <a href="journal.html">More in the Journal →</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="journal.html">Journal</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+</body>
+</html>
