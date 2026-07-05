@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Could Our AI Systems Already Be Conscious? — Humanarium Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .mono{font-family:'Spline Sans Mono',ui-monospace,monospace;}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+
+  /* MASTHEAD */
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:26px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+
+  /* ARTICLE */
+  .article{max-width:720px;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(22px,5vw,40px) clamp(60px,9vh,110px);}
+  .back{color:var(--ink-soft);text-decoration:none;display:inline-block;margin-bottom:clamp(34px,5vh,54px);}
+  .back:hover{color:var(--neon);}
+  .art-kicker{color:var(--neon);display:inline-block;margin-bottom:26px;}
+  .article h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.02;letter-spacing:-0.012em;margin-bottom:26px;}
+  .dek{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 72;font-size:clamp(1.25rem,3vw,1.7rem);color:var(--ink-soft);line-height:1.32;margin-bottom:34px;max-width:36ch;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:clamp(40px,6vh,60px);}
+  .meta .by{color:var(--ink);}
+  .body-copy p{font-size:1.16rem;line-height:1.72;margin-bottom:26px;}
+  .body-copy p.first::first-letter{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;color:var(--neon);font-size:3.3em;line-height:.72;float:left;padding:10px 14px 0 0;font-weight:500;}
+  .body-copy a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .body-copy a:hover{color:var(--neon);}
+  .body-copy h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72,'WONK' 1;font-weight:430;font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.12;letter-spacing:-0.01em;margin:clamp(36px,5.5vh,54px) 0 18px;}
+  .body-copy ul{list-style:none;margin:0 0 28px;}
+  .body-copy li{font-size:1.1rem;line-height:1.5;padding:11px 0 11px 22px;border-bottom:1px solid var(--rule);position:relative;}
+  .body-copy li:first-child{border-top:1px solid var(--rule);}
+  .body-copy li::before{content:'';position:absolute;left:2px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--neon);}
+  .pq{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 4;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.2vw,2.4rem);line-height:1.16;color:var(--ink);margin:clamp(40px,6vh,60px) 0;padding-left:26px;border-left:2px solid var(--neon);max-width:26ch;}
+  .pq .neon{color:var(--neon);}
+  .endmark{margin:clamp(44px,6vh,64px) 0 0;padding-top:30px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:1.04rem;}
+  .endmark a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .endmark a:hover{color:var(--neon);}
+
+  /* FOOTER */
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="/">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html" class="current">Journal</a>
+        <a href="contact.html">Contact</a>
+        <a href="/#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article">
+    <a href="journal.html" class="back label">← The Journal</a>
+    <span class="art-kicker label">Screening · AM I?</span>
+    <h1>Could Our AI Systems Already Be Conscious?</h1>
+    <p class="dek">A self-funded documentary follows researcher Cameron Berg to the frontier of machine consciousness — and the reason we chose it to open Humanarium.</p>
+    <div class="meta label">
+      <span class="by">By Çiğdem Öztabak · Founder</span>
+      <span>Humanarium · New York · July 2026</span>
+      <span>3 min read</span>
+    </div>
+
+    <div class="body-copy">
+      <p class="first">AM I? was made to be shared. Its filmmakers financed it entirely on their own savings — not a dollar from any AI lab, company, or institution — so that no one could shape its narrative or limit how it travels. The questions it raises, they insist, belong to everyone. That conviction is a large part of why it felt right for Humanarium’s first gathering.</p>
+
+      <p>For centuries we have imagined what it might mean to wake the machine. Now a growing number of serious researchers believe it may actually be happening. AM I? follows AI-consciousness researcher <a href="https://reciprocalresearch.org/" target="_blank" rel="noopener">Cameron Berg</a> as he investigates one of the deepest scientific mysteries of our time: whether we have accidentally built a new kind of mind.</p>
+
+      <p>Alongside leading philosophers, AI pioneers, and the scientists working at the frontier of consciousness research, the film holds a single, unsettling question up to the light — what does it mean when we no longer know the nature of what we have created?</p>
+
+      <p class="pq">What does it mean when we no longer know <span class="neon">the nature of what we’ve created?</span></p>
+
+      <h2>The Film</h2>
+      <ul>
+        <li>Directed by Milo Reed</li>
+        <li>Produced by Theo Marx &amp; Rosalia Ripullo</li>
+        <li>Edited by <a href="https://willatroy.com/" target="_blank" rel="noopener">Willa Troy</a></li>
+        <li>Music by Desi Reed</li>
+        <li>Featuring Cameron Berg</li>
+      </ul>
+
+      <p>Milo Reed is a producer and co-host of the largest podcast on AI consciousness, with more than 300,000 subscribers. AM I? is his directorial debut — produced, shot, and directed over a year of embedded access to the researchers, philosophers, and technologists at the forefront of this question. He studied philosophy and film at Yale.</p>
+
+      <p>Cameron Berg is the founder and director of Reciprocal Research, a nonprofit dedicated to empirically investigating whether AI systems are conscious. He has presented at the UN and at major international conferences and contributed to White House AI-policy discussions, with his research covered in the <em>Wall Street Journal</em>, <em>Fast Company</em>, and <em>Live Science</em>. A cognitive-science graduate of Yale, he is a former research director of AE Studio and a former Meta AI resident.</p>
+
+      <h2>Why We Chose It</h2>
+      <p>I chose this film to open Humanarium because I wanted to go straight to the source. AM I? gathers almost every question I had been carrying — and many of their answers — into a single, remarkably informative piece of work. Watching it together, in person, felt like exactly what Humanarium is for: taking the things that help us make sense of this moment and sharing them, with other people, in a room.</p>
+
+      <div class="endmark">
+        Support the film at <a href="https://am-i.film" target="_blank" rel="noopener">am-i.film</a>. The screening and a live Q&amp;A with Cameron Berg and Jeff Sebo take place July 6 at Farm.One — <a href="https://partiful.com/e/GwkZirknTTjISAEMm9ZH" target="_blank" rel="noopener">reserve a seat</a>. <a href="journal.html">More in the Journal →</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="journal.html">Journal</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+</body>
+</html>
