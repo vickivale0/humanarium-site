@@ -197,6 +197,7 @@
   .team .head .ttl{font-family:'Fraunces',serif;font-variation-settings:'opsz' 60;font-style:italic;font-weight:400;font-size:clamp(1.2rem,2.8vw,1.7rem);}
   .team-grid{display:grid;grid-template-columns:1fr;gap:clamp(40px,4vw,56px);}
   @media(min-width:760px){.team-grid{grid-template-columns:1fr 1fr 1fr 1fr;}}
+  @media(min-width:760px){.member h3 .nb{display:block;}}
   .member .portrait{position:relative;aspect-ratio:4/5;background:var(--paper-2);overflow:hidden;border:1px solid var(--rule);max-width:290px;}
   .member .portrait .frame{position:absolute;inset:13px;border:1px solid var(--neon);opacity:.45;pointer-events:none;z-index:2;}
   .member .portrait .mono-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;font-weight:400;font-size:clamp(4rem,11vw,7.5rem);color:var(--neon);opacity:.9;}
@@ -503,7 +504,7 @@
             <span class="frame"></span>
           </div>
           <span class="role label">Music &amp; Culture<a href="https://anilmusic.com/epk" target="_blank" rel="noopener" class="extlink" aria-label="Anil Yangin, external link">&#8599;</a></span>
-          <h3><a href="https://anilmusic.com/epk" target="_blank" rel="noopener" class="namelink">Anil Yangin</a></h3>
+          <h3><a href="https://anilmusic.com/epk" target="_blank" rel="noopener" class="namelink">Anil <span class="nb">Yangin</span></a></h3>
           <p>A DJ and music maker with over a decade at the intersection of urban culture and sound — clubs, festivals, radio, nights, a creative agency, a label — now building from Brooklyn.</p>
         </div>
       </div>
