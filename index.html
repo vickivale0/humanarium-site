@@ -124,11 +124,11 @@
   .intern-cta .cta:hover{background:var(--neon);border-color:var(--neon);color:var(--dark);}
   .intern-cta .email-link{flex-shrink:0;font-family:'Spline Sans Mono',monospace;font-size:1rem;letter-spacing:.02em;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--neon);padding-bottom:3px;transition:color .25s ease;}
   .intern-cta .email-link:hover{color:var(--neon);}
-  .email-cap{display:flex;flex-wrap:wrap;gap:10px;flex-shrink:0;}
-  .email-cap input{font-family:'Spline Sans Mono',monospace;font-size:.9rem;padding:15px 18px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);min-width:230px;outline:none;transition:border-color .25s ease;}
+  .email-cap{display:flex;flex-direction:column;gap:10px;flex-shrink:0;width:min(320px,100%);}
+  .email-cap input{font-family:'Spline Sans Mono',monospace;font-size:.9rem;padding:15px 18px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);width:100%;outline:none;transition:border-color .25s ease;}
   .email-cap input:focus{border-color:var(--neon);}
   .email-cap input::placeholder{color:var(--ink-soft);}
-  .email-cap button{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;padding:15px 26px;background:var(--ink);color:var(--paper);border:none;cursor:pointer;transition:background .25s ease,color .25s ease;}
+  .email-cap button{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;padding:15px 26px;background:var(--ink);color:var(--paper);border:none;cursor:pointer;width:100%;transition:background .25s ease,color .25s ease;}
   .email-cap button:hover{background:var(--neon);color:var(--dark);}
   .join-thanks{font-family:'Spline Sans Mono',monospace;font-size:.95rem;color:var(--neon);flex-shrink:0;margin:0;}
 
@@ -523,10 +523,12 @@
       <div class="card reveal">
         <div class="text">
           <h3>Join the Circle</h3>
-          <p>A club for humans in the age of AI. Leave your email and be first to hear about gatherings, screenings, and everything we’re building.</p>
+          <p>A club for humans in the age of AI. Tell us a little about you, and be first to hear about gatherings, screenings, and everything we’re building.</p>
         </div>
         <form class="email-cap" id="joinForm" action="https://formspree.io/f/xzdjzwyl" method="POST">
+          <input type="text" name="name" placeholder="Your name" aria-label="Your name" required>
           <input type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+          <input type="text" name="What do you do" placeholder="What do you do?" aria-label="What do you do?">
           <button type="submit">Join →</button>
         </form>
         <p class="join-thanks" id="joinThanks" hidden>Thanks — you’re on the list.</p>
