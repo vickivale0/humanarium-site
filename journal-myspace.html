@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MySpace is coming back. Do we actually miss it? — Humanarium Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .mono{font-family:'Spline Sans Mono',ui-monospace,monospace;}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+
+  /* MASTHEAD */
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:26px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+
+  /* ARTICLE */
+  .article{max-width:720px;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(22px,5vw,40px) clamp(60px,9vh,110px);}
+  .back{color:var(--ink-soft);text-decoration:none;display:inline-block;margin-bottom:clamp(34px,5vh,54px);}
+  .back:hover{color:var(--neon);}
+  .art-kicker{color:var(--neon);display:inline-block;margin-bottom:26px;}
+  .article h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.02;letter-spacing:-0.012em;margin-bottom:26px;}
+  .dek{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 72;font-size:clamp(1.25rem,3vw,1.7rem);color:var(--ink-soft);line-height:1.32;margin-bottom:34px;max-width:36ch;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:clamp(40px,6vh,60px);}
+  .meta .by{color:var(--ink);}
+  .body-copy p{font-size:1.16rem;line-height:1.72;margin-bottom:26px;}
+  .body-copy p.first::first-letter{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;color:var(--neon);font-size:3.3em;line-height:.72;float:left;padding:10px 14px 0 0;font-weight:500;}
+  .body-copy a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .body-copy a:hover{color:var(--neon);}
+  .body-copy h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72,'WONK' 1;font-weight:430;font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.12;letter-spacing:-0.01em;margin:clamp(36px,5.5vh,54px) 0 18px;}
+  .body-copy ul{list-style:none;margin:0 0 28px;}
+  .body-copy li{font-size:1.1rem;line-height:1.5;padding:11px 0 11px 22px;border-bottom:1px solid var(--rule);position:relative;}
+  .body-copy li:first-child{border-top:1px solid var(--rule);}
+  .body-copy li::before{content:'';position:absolute;left:2px;top:1.05em;width:7px;height:7px;border-radius:50%;background:var(--neon);}
+  .pq{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 4;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.2vw,2.4rem);line-height:1.16;color:var(--ink);margin:clamp(40px,6vh,60px) 0;padding-left:26px;border-left:2px solid var(--neon);max-width:26ch;}
+  .pq .neon{color:var(--neon);}
+  .endmark{margin:clamp(44px,6vh,64px) 0 0;padding-top:30px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:1.04rem;}
+  .endmark a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .endmark a:hover{color:var(--neon);}
+
+  /* FOOTER */
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="/">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html" class="current">Journal</a>
+        <a href="contact.html">Contact</a>
+        <a href="/#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article">
+    <a href="journal.html" class="back label">← The Journal</a>
+    <span class="art-kicker label">On Nostalgia &amp; the Internet</span>
+    <h1>MySpace is coming back. Do we actually miss it?</h1>
+    <p class="dek">MySpace’s owners want to bring it back — but maybe what we miss isn’t the platform. It’s a version of the internet, and of ourselves, that no longer exists.</p>
+    <div class="meta label">
+      <span class="by">By Çiğdem Öztabak · Founder</span>
+      <span>Aposto · August 10, 2026</span>
+      <span>12 min read</span>
+    </div>
+
+    <div class="body-copy">
+      <p class="first">According to news that has been circulating in the technology press for the past few days, Tim and Chris Vanderhook, the brothers who own MySpace today — one of the biggest social networks of the 2000s, which spread across the world between 2005 and 2009 — have announced that they want to revive the brand. Speaking in the fresh 2026 documentary "MySpace," which premiered at the Hot Docs Film Festival in Toronto, the brothers say they are waiting for the right time to reopen MySpace. The documentary, meanwhile, reopens for debate not only the platform's rise but also the relationship an entire generation built with the internet.</p>
+
+      <h2>Is 2026 the right time for a comeback?</h2>
+
+      <p>When we consider the internet's roughly twenty years of memory, this news isn't particularly surprising at first glance. For the past few years it hasn't only been MySpace coming back, but also the tools that shaped the cultural nuances we call the Y2K aesthetic. Disposable and digital cameras, iPod Nanos, Nokia phones, MSN Messenger sounds, Tumblr themes and VHS filters keep being thrown at us on social media all year long. On TikTok, millions of people are chasing trends they couldn't actually catch in their own era. It's worth remembering that the generation romanticizing the 2000s this way was in elementary school during the platform's most popular years. Some of them hadn't even been born yet. So do people really miss an old social network? Or is what they want back a longing for a version of the internet that no longer exists? Clearly, today's social media, cultural turbulence and artificial intelligence developments have come to bother people from every walk of life to a considerable degree. Seeing AI slop — those endless AI-generated photos and videos that represent nothingness — which one of us doesn't feel their stomach genuinely turn a little?</p>
+
+      <p>The answer to this question takes us not only to MySpace but to one of the biggest cultural transformations the internet has undergone in the past twenty years. Because MySpace was never just a website. MySpace was one of the most important banners of a period in which the internet worked in an entirely different way, however briefly. That golden age when algorithms had not yet shaped our daily lives, when social media had not been standardized, and when people built their digital identities with their own hands rather than with templates handed to them by companies. Speaking of the golden age, in popular cultural references this longing for the past is actually called "Golden Age Syndrome." That is, the tendency to see the past as happier, simpler and more meaningful than the present. In the academic literature, this feeling is mostly explained through "rosy retrospection" (the tendency to remember the past more favorably than it was, even if you didn't live through it) and the concepts of nostalgia developed by the cultural theorist Svetlana Boym. For Boym, nostalgia is not merely longing for a lost time but a way of making sense of the present's shortcomings through the past. If we take as an example Woody Allen's "Midnight in Paris," which handles these concepts in depth and romanticizes them to excess, the film follows exactly this illusion. The lead character, who longs each time to travel to the Paris of the 1920s, discovers that the artists living in that period also missed even older eras as their own "golden ages." So do we as human beings collectively and truly miss the past, or does every generation ever born create a flawless yesterday in its mind in order to compensate for the disappointments of its own present? And in an age when we talk more about technology than about today's artists, what does the excitement of a return to nostalgia look like?</p>
+
+      <h2>When getting online took a minute</h2>
+
+      <p>Connecting to the internet in the mid-2000s resembled nothing we do today. That characteristic connection sound coming out of our modems that we waited minutes for, the "ding" from MSN Messenger, ICQ's unforgettable "Uh-oh!" alert, our Winamp playlists, the songs we downloaded on LimeWire after waiting hours and sometimes days, sending a nudge on MSN, our nicknames that changed every week and the song lyrics we wrote in our status messages. Back then the internet consisted less of a flawless experience designed by a single company than of the sum of hundreds of small worlds loosely tied to one another. Today, although social media platforms may look varied on the inside, their experiences and what they offer — even their purposes — are almost identical.</p>
+
+      <p>Describing MySpace as a "social media platform" in today's sense also falls short. Because on MySpace the point was not to produce content but to build a place of your own. While there is no way to know what will happen if someone attempts to build a new social medium out of the MySpace of 2026, it is also obvious that millions of us will have a moment of saying, at least once, "I'm just going to look at a friend's page and get out."</p>
+
+      <p>When you entered a friend's MySpace profile, the first thing we saw was what that person was listening to, and this was perceived as quite a romantic or cool move. As the page loaded, The Killers, My Chemical Romance or maybe Arctic Monkeys would start playing in the background. Our backgrounds were sometimes covered in black roses, sometimes in glittering stars. The text could be in neon colors that were nearly impossible to read, or hearts and butterflies would flutter behind your cursor. In the top corner of the page sat photographs of your eight closest friends, and that spot was a shrine for everyone. We were a generation that tried to fit the clues of our character into stars, roses and the cool songs we listened to — and that was happy doing it. At the time we saw this only as an aesthetic preference. Yet looking back today, we can also see that it was the beginning of a much larger debate about how the internet is designed. Because MySpace was not designed to give people a limitless space in which to express themselves.</p>
+
+      <p>In 2005, when Alice Marwick published a study in which she began examining Friendster, Orkut and MySpace users while still a doctoral student, there is no telling whether she thought her research would still be relevant today. But Marwick's research raised a question that was being asked for the first time. Were people really being themselves on the internet, or were they displaying the version of themselves they wanted to be? According to Marwick, although social networks appear to encourage people to present a single, authentic identity, users were constantly looking for ways to produce different selves within those boundaries.</p>
+
+      <h2>How did MySpace turn into a music culture factory?</h2>
+
+      <p>When we discover a new artist today, what usually lies behind it is Spotify's recommendation system, TikTok's "For You" algorithm or YouTube's recommendation engine. What we call going viral today depends largely on algorithms distributing visibility. In the MySpace era, visibility was produced by the people on the social network themselves. The discovery mechanism depended entirely on people. You would go into a friend's profile, like the song playing in the background, move on to that band's page, and from there reach another band's "Top Friends" list. For a musician to rise, they didn't need to reach millions of people at once; it was enough to appear on the profiles of the right people.</p>
+
+      <p>For this reason, some of the most interesting success stories in the music history of the 2000s also began spreading from MySpace. The British indie rock band Arctic Monkeys was one of the best-known examples. Fans who went to one of the band's concerts lit the fuse by uploading the demo CDs the band handed out to the internet and creating a MySpace page in the band's name. The songs began traveling by word of mouth, from profile to profile, and the band, which didn't even have a record label yet, began reaching thousands of people before releasing its first album. Entirely through MySpace, and at a time when there were no advertising-driven algorithms this advanced at focusing on taste, interest and affinity. In that period the music industry was encountering, for the first time, a discovery mechanism outside of radio or MTV.</p>
+
+      <p>Lily Allen, who is known to have opened up to the world after first becoming popular on MySpace, became one of the most talked-about new pop names in Britain within a short time of uploading her demos — in a great visionary move — to MySpace, of which she was probably an early user relative to her own generation. The first signs of the ecosystem we call the creative economy today were in fact emerging on MySpace through creators and artists, and the power of all the intermediary institutions was being shaken this visibly for the first time. People were able to make themselves popular.</p>
+
+      <h2>MySpace changed not only the music industry but also the definition of being famous</h2>
+
+      <p>The concept we call an influencer today sounds quite familiar to us, and this role has become a profession that almost everyone can internalize, like being a doctor, a lawyer or a teacher. Content creators who work with brands and have millions of followers are an ordinary part of our lives. Yet in the mid-2000s the idea of an "internet phenomenon, an internet celebrity" was still considered new. You weren't a Hollywood star yet, or you couldn't easily get on television. You were simply very well known on the internet. Today we find it natural for TikTok personalities to appear in Netflix series or Hollywood films.</p>
+
+      <p>The transformation of the creative economy that rose with the internet and through this tool, of course, did not affect only the entertainment or music industries. It also began to transform the ways we form friendships.</p>
+
+      <p>One of MySpace's most controversial features was the "Top 8" list. Users publicly ranked their eight closest friends on their profiles. This feature, which looked innocent at first glance, made social relationships more openly visible and measurable. Which of us didn't have arguments like "Why did you put me in second place?" or "Why did you take me off the list?", or didn't secretly resent these subjective decisions made on MySpace? An early version of the fine sensitivity we show today over who watched our Instagram story or who liked our post was, quite literally, born on MySpace.</p>
+
+      <h2>MySpace, Facebook and the internet we lost</h2>
+
+      <p>It's impossible not to wonder how Facebook founder Mark Zuckerberg reacted upon hearing that MySpace would reopen. Zuckerberg, a master at buying up every popular medium, copying it and turning it into a money-counting machine, is well aware of the longing for the analog, and these trends are managed quite deliberately from the Instagram social network and spread across the world.</p>
+
+      <p>MySpace's biggest rival between 2005 and 2010 was not actually Facebook. MySpace had itself been born as a side project that watched the rise of another platform called Friendster and tried to fix its shortcomings. Only a month after launching in 2003, they reached one million users. Within a year, the number of registered users had passed 20 million. For that period these figures were unbelievable. Social media was still in its infancy, and MySpace was seen not only as the biggest player but as a platform that influenced and reshaped the future of the internet and the ways we communicate in popular culture. At that age, MySpace was our only reason for going online.</p>
+
+      <p>But the well-known rivalry between MySpace and Facebook was more than a race between two similar products, as it is usually told; it was precisely the confrontation of two different understandings of the internet.</p>
+
+      <p>One of the important reasons for this was, of course, the world the founders of the two platforms came from. The team behind MySpace came not from technology companies but from the internet marketing industry — that is, they were advertisers. Their view of the platform was, from the very beginning, closer to that of a communications media company than a software company.</p>
+
+      <p>Facebook, on the other hand, emerged with a completely different motivation and, by hiding its advertising and media role from the outset while acquiring its users, arrived at the point we call the social dilemma. Born on the Harvard University campus, the platform focused in its early years on trust rather than growth. Encouraging us to use our real names instead of the internet names — nicknames — that represented our personas, the initial requirement to register with a university email address, and its rather plain design separated Facebook from MySpace not only technically but culturally as well.</p>
+
+      <p>When we look at our internet history, we understand that MySpace really did not see Facebook as a serious threat for a long time. It is also perfectly normal that they thought Facebook would remain a niche platform appealing only to university students. The world had not yet come face to face with the young, smart and ambitious Mark Zuckerberg, who dropped out of Harvard University. When Facebook kept growing, MySpace this time tried to imitate it, completely changing the spirit of its own platform and driving its users away — or, to put it another way, losing them to Facebook, the neighborhood's new blue-eyed boy.</p>
+
+      <p>The economic model also created an important divergence between the two platforms. The bulk of MySpace's revenue came from advertising. The real irony begins here, because Facebook's advertising revenue would also come to form its main economic model over the years. The more ads MySpace showed, the more complicated the experience it offered became because of technical inadequacies, and as the user experience worsened, people drifted away from the platform.</p>
+
+      <p>By 2010, it is estimated that half of the users had abandoned MySpace entirely. What's more, the problem is seen as more than just technical shortcomings or management errors. The truly interesting side of the matter is that during the same period MySpace began to be mentioned increasingly in negative coverage in the American media, and the platform came to be associated with fake profiles, cases of online harassment and debates over child safety, acquiring the image of a "dangerous website" for parents. Facebook, with its real-name policy and its structure built on one's real-life circle of friends, was perceived as a much safer alternative. Exactly 15 years later, history repeats itself here as well: in 2024, a hearing in the U.S. Senate titled Big Tech and the Online Child Sexual Exploitation Crisis, with Mark Zuckerberg among those present, was broadcast live. At that hearing, Zuckerberg was asked to apologize to the victims' families because of the deficient policies and security gaps at Facebook. In front of the entire world, no less — and this video kept being republished over and over as it went viral on social media for weeks.</p>
+
+      <p>Still, to be fair, looking back today, saying that Facebook killed MySpace merely by offering a better product falls short. Facebook may have offered a cleaner design at the time, but the real difference was how Zuckerberg imagined the internet, and his awareness that he had lit the fuse for transforming it. Facebook had built a social infrastructure in which people carried their offline identities into the digital environment as they were, with everything they had. And what largely determined the direction social media would follow for the next twenty years was Facebook's approach.</p>
+
+      <h2>MySpace and one of the most popular hacking stories in social media history</h2>
+
+      <p>Just five years before the platform's collapse, in October 2005, a brilliant 19-year-old from Los Angeles named Samy Kamkar added a few lines of code to the "about me" section of his MySpace profile. With this code he was neither planning to attack MySpace nor imagining that it would appear in front of millions of people. In fact, in interviews he gave after the incident, he explained it this way: "I was just trying to learn JavaScript." MySpace's technical gaps also contributed quite a bit to Samy's JavaScript learning process.</p>
+
+      <p>What the code Samy Kamkar wrote looks quite innocent at first glance. Everyone who visited Samy Kamkar's profile added Samy to their friends list without even realizing it, and so within a single day he reached millions of friends.</p>
+
+      <p>Samy achieved this by creating a piece of code known in the hacker world as a worm. Everyone who saw this code and added him as a friend turned into a new carrier at the same time, and within a few hours the entire platform filled up with a single piece of self-replicating code, and for the first time in MySpace's history it crashed and went completely offline.</p>
+
+      <p>Looking back today, this story may seem like one of the amusing memories of internet folklore, but at the time the incident was taken quite seriously and the U.S. Secret Service caught Samy Kamkar at his home. The 19-year-old's computers were seized. After a legal process lasting months, he received three years of probation and hundreds of hours of community service.</p>
+
+      <p>Actually, the most cinematic part of the story is neither how the crime came about nor the punishment itself. Years later, at a conference he attended, Samy Kamkar recounted that during his probation he was also banned from connecting to the internet and from touching a computer for a year. He tells of getting up at five on Saturday mornings, putting on his orange vest, and driving in his Porsche to the waste collection center to complete his community service. How he bought his Porsche is another story altogether: the highly talented Samy Kamkar developed a piece of software during the internet boom of those years, sold it, and then hacked MySpace.</p>
+
+      <p>Today it is possible to follow Samy Kamkar on X and visit his interesting web page; his videos are also accessible on YouTube.</p>
+
+      <h2>2006 vs. 2026</h2>
+
+      <p>For the past few years, a similar transformation has been taking place in nearly every area of internet culture. The fashion world is rediscovering the Y2K aesthetic. The sunglasses Neo and Trinity wore in "The Matrix," cargo pants, neon-colored bracelets, even plastic perforated flats are coming back into fashion. These are reflected not only in what we wear or carry but also in how we use technology. TikTok and Instagram aren't only learning our interests; they are also constantly showing us the aesthetic worlds of particular eras again and again. The fashion trends of the '90s, the digital cameras of the 2000s, old internet interfaces, the technological optimism of Y2K. Recommendation systems processing billions of data points don't just remind us of the past; they make us truly feel it again.</p>
+
+      <p>The past that algorithms present to us, however, is not history itself. History already tends to become romanticized over time through stories or films. That's why even one of the world's best directors is criticized, when he adapts the story of the Odyssey to the screen, for not romanticizing it enough. Maybe that's why what we miss today isn't really MySpace. It's what 2006 made us feel compared with 2026.</p>
+
+      <p>We began this summer with the boos rising against artificial intelligence from university campuses in America. Famous technology executives who spoke at commencement ceremonies about the new age artificial intelligence would open for humanity were met with protests instead of the applause they had been used to for years. This reaction, of course, was not directed only at artificial intelligence technology. It was also a powerful indicator of a shifting social mood against technology's influence, which extends from our daily lives to our ways of working, from education to our human relationships.</p>
+
+      <p>Maybe the turn toward the analog, the refilling of book and philosophy clubs, the greater importance placed on physical gatherings, the growing talk of digital detox, anti-AI-slop ventures beginning to receive investments as large as those going to AI ventures, the rising interest in old cameras and the return of platforms like MySpace to the agenda are all parts of the same cultural wave and of our hopes.</p>
+
+      <p>Maybe we aren't rejecting technology; maybe we're just trying to redefine the relationship we have with it. That's why the return of MySpace may carry a meaning larger than the reopening of an old social network, provided, of course, that they really do it by capturing the spirit of the new cultural wave.</p>
+
+      <div class="endmark">
+        Originally published in <a href="https://aposto.com/a/cigdem-oztabak" target="_blank" rel="noopener">Aposto</a>, August 10, 2026. By Çiğdem Öztabak, Founder of Humanarium. <a href="journal.html">More in the Journal →</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="journal.html">Journal</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+</body>
+</html>
