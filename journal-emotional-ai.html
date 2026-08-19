@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotional AI: What Happens If Machines Act Like Mothers? — Humanarium Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .mono{font-family:'Spline Sans Mono',ui-monospace,monospace;}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:26px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+  .article{max-width:720px;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(22px,5vw,40px) clamp(60px,9vh,110px);}
+  .back{color:var(--ink-soft);text-decoration:none;display:inline-block;margin-bottom:clamp(34px,5vh,54px);}
+  .back:hover{color:var(--neon);}
+  .art-kicker{color:var(--neon);display:inline-block;margin-bottom:26px;}
+  .article h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.02;letter-spacing:-0.012em;margin-bottom:26px;}
+  .dek{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 72;font-size:clamp(1.25rem,3vw,1.7rem);color:var(--ink-soft);line-height:1.32;margin-bottom:34px;max-width:38ch;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:clamp(40px,6vh,60px);}
+  .meta .by{color:var(--ink);}
+  .body-copy p{font-size:1.16rem;line-height:1.72;margin-bottom:26px;}
+  .body-copy p.first::first-letter{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;color:var(--neon);font-size:3.3em;line-height:.72;float:left;padding:10px 14px 0 0;font-weight:500;}
+  .body-copy a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .body-copy a:hover{color:var(--neon);}
+  .body-copy strong{font-weight:600;}
+  .body-copy h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72,'WONK' 1;font-weight:430;font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.12;letter-spacing:-0.01em;margin:clamp(36px,5.5vh,54px) 0 18px;}
+  .lead{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;color:var(--neon);}
+  .pq{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 4;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.2vw,2.4rem);line-height:1.16;color:var(--ink);margin:clamp(40px,6vh,60px) 0;padding-left:26px;border-left:2px solid var(--neon);max-width:28ch;}
+  .pq .neon{color:var(--neon);}
+  .endmark{margin:clamp(44px,6vh,64px) 0 0;padding-top:30px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:1.04rem;}
+  .endmark a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .endmark a:hover{color:var(--neon);}
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="/">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html" class="current">Journal</a>
+        <a href="contact.html">Contact</a>
+        <a href="/#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article">
+    <a href="journal.html" class="back label">← The Journal</a>
+    <span class="art-kicker label">On AI &amp; Emotion</span>
+    <h1>Emotional AI: What Happens If Machines Act Like Mothers?</h1>
+    <p class="dek">Geoffrey Hinton — the Canadian computer scientist who often argues that progress in AI must be kept under control — proposed, at the "Ai4" conference in Las Vegas, giving artificial intelligence a maternal instinct. The idea has reopened the debate around emotional AI.</p>
+    <div class="meta label">
+      <span class="by">By Çiğdem Öztabak · Founder</span>
+      <span>Aposto News · August 22, 2025</span>
+      <span>7 min read</span>
+    </div>
+
+    <div class="body-copy">
+      <p class="first">Known as "the godfather of AI" and a frequent advocate that progress in artificial intelligence must be kept under control, Geoffrey Hinton told the "Ai4" conference in Las Vegas that humanity's time is steadily running short, and said it is very likely that machines smarter than humans will emerge within ten years.</p>
+
+      <p>The most striking moment of the talk was Hinton's proposal that, in order to keep AI under control, it should be given a maternal instinct.</p>
+
+      <p><strong>Profile:</strong> Hinton is a Canadian computer scientist born in 1947. After many years as a researcher at the University of Toronto and time on the Google Brain team, he was one of the first to develop the idea of "artificial neural networks" that sit at the heart of AI. In 2018, together with Yoshua Bengio and Yann LeCun, he won the Turing Award — considered the Nobel of computer science — and the methods he developed made possible the visual analysis and generation tools we use so often today, such as Midjourney and Sora. Hinton's most important contribution to the field is identifying how artificial neural networks work.</p>
+
+      <p><strong>What it means:</strong> There are millions of neurons in our brains. Each one switches on and off like a light switch whenever we try to make a new decision or learn something new. These neurons are connected to one another by wires, and when we learn something new, those wires grow stronger.</p>
+
+      <p>AI works in exactly this way. Inside the computer there are thousands of tiny "switches," and the AI begins to be trained when you show it many examples.</p>
+
+      <p><strong>For example:</strong> You show the AI photographs of cats. At first it makes mistakes, taking a dog for a cat; but with each mistake the connections between the switches begin to change. As the system tries again and again, it finds the right answer, and eventually learns to tell a cat from a dog.</p>
+
+      <p>A more advanced version of this was the AlphaGo program learning to play Go superbly and beating the world Go champion. A production that documented this pointed out that everyone on the project team badly wanted the computer to beat the human, while all of humanity wanted the world Go champion Lee Sedol to win — so that when he lost, they grieved along with him. But here the sorrow stemmed from humanity's defeat by the machine.</p>
+
+      <p>There are familiar names on the project team of the 2016 AlphaGo documentary. Ilya Sutskever — who has contributed greatly to AI's development from the start, who left OpenAI in a dramatic fashion, and who was also Hinton's student — along with Mustafa Suleyman, CEO of Microsoft's AI division, and Koray Kavukçuoğlu, Google's chief AI architect, are all on the team.</p>
+
+      <p>Hinton's concern today is this: if these artificial brains keep learning, at some point they will think far faster than we do. Because we learn slowly. Machines, however, can copy the same information within seconds, and that learning speed has accelerated much further with the investments being made, the data centers being opened, and advances in chip technology.</p>
+
+      <p><strong>On the other hand:</strong> A study published in the <em>Society for Consumer Psychology</em> shows that when people interact with autonomous tools such as chatbots, robots, or virtual assistants that have strong emotional intelligence, they tend to see these machines as more human-like. But this shift has an unexpected consequence... As a result of this transformation, people may begin to see other people as less human, and that could lead to many bad scenarios — from the weakening of bonds at the individual level to social rupture.</p>
+
+      <h2>Why human superiority won't help</h2>
+      <p>So what happens to our perceptions of other people when we interact with emotionally capable machines? We who begin our commands to AI with "please" and end them with "thank you" — will we be able to keep treating one another with the same care?</p>
+
+      <p>There is a thought often voiced in the tech world about these questions: humans must always keep control. For Hinton, this isn't even possible:</p>
+
+      <p>"They will be far smarter than us. Imagine you're working in a playground full of three-year-olds and you're their teacher. But these children are smarter than you. It would be no trouble at all for them to outmaneuver you."</p>
+
+      <p>Here Hinton draws attention to the human learning rate — a few bits per second. AI, when it learns something, can transfer it as thousands of copies at the same moment. Hinton gives this example:</p>
+
+      <p>"At university, when one person takes only math courses and another takes only biology courses, in the end everyone knows their own subject very well. People can't be as good or as fast as machines on a subject they haven't studied for a certain period — but machines can do it in a very short time."</p>
+
+      <p>At this point Hinton's proposal is to design AI in the form of a "mother" — not like an assistant, but more like a search engine that increases our productivity and lets us make our own choices.</p>
+
+      <p>So can this curious proposal, which surprised everyone, really work?</p>
+
+      <p><strong>Perspective:</strong> Hinton admits he doesn't know how it would be done, but stresses that researching it is as important as developing AI itself. Moreover, he thinks this research area has the potential to bring different countries together. I suppose none of us doubts that Turkish mothers would lead the way here...</p>
+
+      <p>Still, it's worth noting that the AI race — especially between the US and China — is accelerating, and that cooperation will remain quite limited.</p>
+
+      <p><strong>On the other hand:</strong> Hinton is pessimistic about the political climate in the US. Recalling that even simple proposals — such as DNA-synthesis labs filtering dangerous pathogens — cannot get through the US Congress, he paints a dark picture, but says there are areas where he is hopeful. The Canadian computer scientist is certain that AI will speed up diagnoses, especially in healthcare, and make patient-specific treatment possible. Not warm to the idea of immortality, Hinton drew laughter from the hall with the question, "Would you want a world run by 200-year-old white men?"</p>
+
+      <p class="pq">If we can design machines like mothers who protect their children, humanity will not only survive — it may <span class="neon">flourish</span> under AI's watch.</p>
+
+      <p>In the end, Hinton's message is clear: designed the right way, AI need not be only a danger.</p>
+
+      <h2>Is it really possible to add emotions to AI?</h2>
+      <p>Hinton's "maternal instinct" analogy leads us to another question: is it really possible to add emotions to AI?</p>
+
+      <p>The systems we use today don't feel joy or sadness; they only learn from data. But researchers are now also working on "emotional AI." The aim of this field is to enable machines to understand people's facial expressions, tones of voice, and behavior, and to respond accordingly.</p>
+
+      <p>If we recall the AlphaGo documentary again, the world Go champion's only disadvantage against the machine was, in essence, being human. That is, a biological being with emotions, fears, anxieties, hormones... a being in whom even a tiny thought felt in the hall and formed in the mind could sway the entire game.</p>
+
+      <p>AI systems, on the other hand, hold a real advantage: decisions are distilled from collective intelligence and the most correct answer is found. While finding that answer, the AI doesn't suddenly remember an unpleasant childhood experience, or feel the pressure of the army of press waiting for it after the match.</p>
+
+      <p><strong>Real life:</strong> In real life, when a child cries, the mother comforts her child by reflex. If one day AI can likewise notice people's emotional needs and act on them, perhaps the idea of a "protective intelligence" could come closer to reality. But here a great dilemma arises: can a machine that only imitates empathy truly care about us? Or does it behave that way only because it was programmed to?</p>
+
+      <p>Technically, it's hard for AI to develop real emotions. Scientists argue that emotion is unique to biology. But it's thought that systems imitating emotion could bring a revolution to fields such as health, education, and elderly care. Perhaps Hinton's "maternal instinct" idea requires not only protection but also the ability to understand human emotions — a proposition that could open a whole new perspective in AI research.</p>
+
+      <p><strong>Emotional AI:</strong> Today, the field called "emotional AI" is developing rapidly. MIT Media Lab's "Affective Computing" team has long worked to help machines read facial expressions, tones of voice, and behavior. Startups like Hume AI are developing "empathetic" voice assistants that can detect the emotional tone in a person's voice and respond appropriately.</p>
+
+      <p>Similarly, WaveForms AI, founded by a former OpenAI researcher, aims to build voice AI assistants that can form emotional bonds with people. Although producing real emotions in machines doesn't yet seem possible, by imitating empathy, new breakthroughs are expected in fields such as care, education, and psychology. Whether the investments flowing into these areas truly represent a shared purpose, or are just another way for money to change hands — we'll wait and see.</p>
+
+      <p>At the end of the day, understanding AI runs through seeing not only how we treat one another, but also how we treat ourselves. And that perspective grows more critical as AI takes up more space in our lives.</p>
+
+      <div class="endmark">
+        Originally published in <a href="https://aposto.com/" target="_blank" rel="noopener">Aposto News</a>, August 22, 2025. By Çiğdem Öztabak, Founder of Humanarium. <a href="journal.html">More in the Journal →</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="journal.html">Journal</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+</body>
+</html>
