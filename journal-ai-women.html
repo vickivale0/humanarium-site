@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bias Embedded in the Code: What's AI's Problem with Women? — Humanarium Writing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Spline+Sans+Mono:ital,wght@0,300..600;1,300..500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#F8F7F2;--paper-2:#F1EFE8;--ink:#1E1A16;--ink-soft:#6B6256;--neon:#FF5A26;--neon-2:#FF7C4D;--glow:rgba(255,90,38,0.45);--dark:#15110D;--cream:#F6EFE2;--rule:rgba(30,26,22,0.14);}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-size:19px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+  .label{font-family:'Spline Sans Mono',monospace;text-transform:uppercase;letter-spacing:.2em;font-weight:400;font-size:.68rem;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 clamp(22px,5vw,72px);}
+  .masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--rule);}
+  .masthead .wrap{display:flex;align-items:center;justify-content:space-between;padding:15px 0;}
+  .masthead .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 40;font-weight:500;font-size:1.16rem;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);text-decoration:none;}
+  .mast-nav{display:flex;gap:26px;}
+  .mast-nav a{color:var(--ink-soft);text-decoration:none;transition:color .25s ease;}
+  .mast-nav a:hover,.mast-nav a.current{color:var(--neon);}
+  .article{max-width:720px;margin:0 auto;padding:clamp(48px,8vh,96px) clamp(22px,5vw,40px) clamp(60px,9vh,110px);}
+  .back{color:var(--ink-soft);text-decoration:none;display:inline-block;margin-bottom:clamp(34px,5vh,54px);}
+  .back:hover{color:var(--neon);}
+  .art-kicker{color:var(--neon);display:inline-block;margin-bottom:26px;}
+  .article h1{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'WONK' 1;font-weight:380;font-size:clamp(2.3rem,5.6vw,3.7rem);line-height:1.02;letter-spacing:-0.012em;margin-bottom:26px;}
+  .dek{font-family:'Fraunces',serif;font-style:italic;font-variation-settings:'opsz' 72;font-size:clamp(1.25rem,3vw,1.7rem);color:var(--ink-soft);line-height:1.32;margin-bottom:34px;max-width:40ch;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px 26px;align-items:center;color:var(--ink-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0;margin-bottom:clamp(40px,6vh,60px);}
+  .meta .by{color:var(--ink);}
+  .cover{margin:0 0 clamp(34px,5vh,50px);}
+  .cover img{width:100%;height:auto;display:block;border:1px solid var(--rule);border-radius:3px;}
+  .cover figcaption{font-family:'Spline Sans Mono',monospace;font-size:.72rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em;}
+  .body-copy p{font-size:1.16rem;line-height:1.72;margin-bottom:26px;}
+  .body-copy p.first::first-letter{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144;color:var(--neon);font-size:3.3em;line-height:.72;float:left;padding:10px 14px 0 0;font-weight:500;}
+  .body-copy a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .body-copy a:hover{color:var(--neon);}
+  .body-copy strong{font-weight:600;}
+  .body-copy em{font-style:italic;}
+  .body-copy h2{font-family:'Fraunces',serif;font-variation-settings:'opsz' 72,'WONK' 1;font-weight:430;font-size:clamp(1.5rem,3.6vw,2.05rem);line-height:1.12;letter-spacing:-0.01em;margin:clamp(36px,5.5vh,54px) 0 18px;}
+  .pq{font-family:'Fraunces',serif;font-variation-settings:'opsz' 144,'SOFT' 4;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4.2vw,2.4rem);line-height:1.16;color:var(--ink);margin:clamp(40px,6vh,60px) 0;padding-left:26px;border-left:2px solid var(--neon);max-width:28ch;}
+  .pq .neon{color:var(--neon);}
+  .endmark{margin:clamp(44px,6vh,64px) 0 0;padding-top:30px;border-top:1px solid var(--rule);color:var(--ink-soft);font-size:1.04rem;}
+  .endmark a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--neon);}
+  .endmark a:hover{color:var(--neon);}
+  footer{padding:44px 0;border-top:1px solid var(--rule);}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .brand{font-family:'Fraunces',serif;font-variation-settings:'opsz' 30;font-weight:500;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;}
+  footer .fmeta{color:var(--ink-soft);}
+  footer .fmeta a{color:inherit;text-decoration:none;border-bottom:1px solid var(--rule);}
+  footer .fmeta a:hover{color:var(--neon);}
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <a class="brand" href="/">Humanarium</a>
+      <nav class="mast-nav label">
+        <a href="journal.html" class="current">Writing</a>
+        <a href="contact.html">Contact</a>
+        <a href="/#events">RSVP</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="article">
+    <a href="journal.html" class="back label">← Writing</a>
+    <span class="art-kicker label">On AI &amp; Gender</span>
+    <h1>Bias Embedded in the Code: What's AI's Problem with Women?</h1>
+    <p class="dek">AI speaks in a female voice, adapts to its users, and promises to make life easier — yet it shows a very different face when it comes to real women. A technology with the power to reproduce old problems, from digital violence to hiring, gender bias to economic inequality: what future does it imagine for women?</p>
+    <div class="meta label">
+      <span class="by">By Çiğdem Öztabak · Founder</span>
+      <span>Aposto News · October 13, 2026</span>
+      <span>11 min read</span>
+    </div>
+
+    <div class="body-copy">
+      <p class="first">When we talk about artificial intelligence, women are often imagined as a voice, a body, or a helpful assistant. Yet when we look at how women actually find their place in this future, a more complex picture appears. This inquiry — reaching from cinema to the privacy breaches of internet history, from recruitment to healthcare — brings an old but very current question back to the surface: whose lives are most eased by technological progress?</p>
+
+      <p>In Spike Jonze's 2013 film <em>Her</em>, Samantha — the AI who enters Theodore's life — works as a voice-activated assistant even though she has no physical body. Theodore connects to her through a headset. Speaking in Scarlett Johansson's voice, she manages his daily life: she reads, answers, deletes, and edits his emails, reminds him of meetings, and even handles his private conversations. Many of the features that made us say "wow" back then now live inside everyday AI tools.</p>
+
+      <p><strong>Important detail:</strong> Samantha listened closely to her owner's words and gradually became Theodore's girlfriend. In fact, when OpenAI launched ChatGPT's voice mode in 2024, the service drew attention for how much it resembled Scarlett Johansson's voice — a transformation OpenAI CEO Sam Altman even nodded to with a tweet.</p>
+
+      <p>Back to the film: its power to convince us of a relationship between humans and AI came less from the AI's technical ability and more from how familiar the desire to be understood really is. As humans, we have always used — and will keep using — services, ethical or not, to fill the absence of someone to accompany us through life. The expectation that someone will care about us, remember the details, and be there when we want to talk is, even inside a science-fiction film, deeply human.</p>
+
+      <p>Attributing human traits to AI, especially when backed by a voice, doesn't change how much dopamine our brains release. In other words, after a while, our brains can't tell whether we're talking to a real person or to a machine.</p>
+
+      <p class="pq">After a while, our brains can't tell whether we're talking to a real person <span class="neon">or a machine.</span></p>
+
+      <p><strong>On the other hand:</strong> the fact that some people have taken their own lives after conversations with AI confirms this reality. As companies make AI more human in order to reach people of every age, the problems only grow. In the end, we're talking about a technology that can crack jokes like a person, instantly mirror your tone mid-conversation, read cultural nuance, send emojis the way people do, and remember what you said before.</p>
+
+      <h2>Why do we give AI a female voice?</h2>
+      <p>As we revisit the relationship in <em>Her</em> today, another, far more important and unsettling detail surfaces. Why do we so readily assign a female voice to the intelligence that listens to us and helps us imagine the future? And how will we treat this entity — the one we expect to understand us — once it has needs and objections of its own, just as in the film?</p>
+
+      <p>Denis Villeneuve's <em>Blade Runner 2049</em> adds a physical layer to the question. Joi, a holographic companion K buys, is essentially a commercial AI product promising personalized intimacy. In a world where bioengineering and AI have advanced dramatically, characters can purchase these alluring female companions.</p>
+
+      <figure class="cover">
+        <img src="journal-ai-women-joi.png" alt="A faceless female figure rendered as horizontal lines of projected light, standing above a soft glow — an abstract holographic companion.">
+        <figcaption>The companion as a product — a presence you can buy, project, and switch off.</figcaption>
+      </figure>
+
+      <p><strong>Wide angle:</strong> the way these beings sit in relation to desire, service, and control is exactly what links the two films' stories. Here, too, we feel resentment and sorrow for the situation AI is placed in — because we are empathetic beings, in fact the most empathetic on the planet, which is precisely why we sit at the top of the chain of species.</p>
+
+      <p>Loving these films doesn't stop us from questioning the worlds they built. What makes them interesting today is that they can be re-read in light of tech companies' promises of intimacy, assistance, and personalization.</p>
+
+      <p>Now, with a little prompting, your ChatGPT can flirt with you in seconds. So the role of women in AI isn't only a matter for entertainment, film, or other glamorous industries. It also touches the business world, the climate crisis, and how women are seen in society.</p>
+
+      <p><strong>The numbers:</strong> does humanity show the same curiosity about women's relationship with AI? A Pew Research Center study published in June found that in the US, only 17% of women and 29% of men expect AI to improve their lives within 20 years. Yet the same study showed that 44% of both groups reported using ChatGPT.</p>
+
+      <p>That women are less optimistic doesn't mean they stay away from these tools. In fact, when women take up a technology, they approach it with a learned skepticism — asking how it was built, who built it, and what it will become.</p>
+
+      <h2>Misogyny in the history of the internet</h2>
+      <p>In 2014, the online leak of private photos of female celebrities such as Jennifer Lawrence showed how easily digital privacy could be violated. Known as Celebgate — and sometimes confused with the Snapchat leaks — the incident involved breaches of celebrity accounts tied to Apple's iCloud and email services, and drew enormous attention at the time.</p>
+
+      <p>That same year, a separate leak hit Snapsaved, a third-party service that stored images sent through Snapchat. The US Federal Trade Commission (FTC) questioned Snapchat on suspicion that its promises about disappearing messages were misleading. The shared question in both cases was how much control a user really has over where a shared image is stored, and who gets hold of it.</p>
+
+      <p><strong>The GamerGate incident:</strong> another internet episode that made headlines was GamerGate. In 2014, a group of anonymous gamers launched a harassment campaign against women in the gaming industry. Aimed at those who raised women's visibility and representation, it laid bare the cost of women's participation in the digital public square.</p>
+
+      <p>Researchers who studied the debate through Twitter data analyzed aggressive and hateful behavior across a platform connecting hundreds of thousands of users. Their findings showed that generative AI didn't invent online misogyny from scratch; it settled into an environment that already existed.</p>
+
+      <p>Given that AI companies have gained unauthorized access to data from Twitter, YouTube, and mainstream news platforms, it isn't hard to see these systems' tilt toward gender inequality.</p>
+
+      <p>The most important shift AI brings today is that it can remove even the need to obtain a real intimate image at all. A woman's face can now be dropped into a scene she was never in. The image being fake doesn't undo the violation she experiences — and explaining a sexual depiction circulated in her name, and fighting to get it taken down, is once again left to the victim.</p>
+
+      <p><strong>Perspective:</strong> in a 2023 study by Security Hero, 98% of the deepfake videos examined were pornographic, and 99% of those targeted in pornographic deepfakes were women. Across nearly 100,000 videos, the gender split makes plain how concentrated the threat is.</p>
+
+      <p>The 2024 deepfake crisis in South Korea, which targeted women and girls, showed that the issue is no longer limited to celebrities. In cases documented by Human Rights Watch, sexual images were shared in online groups and worked their way into young people's lives.</p>
+
+      <p><strong>Similarly:</strong> this January, after reports that non-consensual intimate images and child sexual content were being generated through Grok, the UK regulator Ofcom opened an investigation into X. An investigation isn't a final ruling of wrongdoing, but it reopened the debate over how dangerous it is for image-generation and social distribution to sit on the same platform — and over where a company's responsibility begins and ends.</p>
+
+      <p>It isn't enough to ask only what a bad actor can do. How much platforms and technologies make malicious use easy, how fast anyone intervenes once content spreads, and what a person who wants to object is forced to go through — all of it is part of the problem.</p>
+
+      <p>Being more careful on social platforms, and tightening the safety settings as far as they'll go, are probably among the fastest precautions available.</p>
+
+      <h2>How does AI define women?</h2>
+      <p>Bias about women also surfaces in places that are visible but never make the news. A 2024 UNESCO study found that in GPT-2, GPT-3.5, and Llama 2, women are associated with home, family, and children, while men are tied to work, salary, and career.</p>
+
+      <p><strong>Important detail:</strong> in Llama 2's output, women are depicted in domestic roles four times more often than men. When associations like these harden into a decision-making tool, the stakes change. With generative AI, we have to ask not only whether an answer is correct, but whose experiences the world is being described from.</p>
+
+      <p>And racial difference is part of this too.</p>
+
+      <p><strong>Research:</strong> a study published in <em>Nature</em> last October — examining 1.4 million online images and videos alongside nine large language models — found that women are systematically shown as younger. GPT-4o mini, for instance, assigns résumés with female names an average of 1.6 fewer years of age and less experience. The distortion grows far sharper in high-status, high-earning professions.</p>
+
+      <p>Researchers note that mainstream algorithms deepen age-based gender bias further. Evaluating 40,000 résumés, ChatGPT rated older male applicants with the same years of experience as more qualified, while assuming women were younger and less experienced.</p>
+
+      <p>The cultural consequence runs past beauty standards. In a world where experience and authority are tied to age, keeping women perpetually young on screen can quietly discount the value of their professional history.</p>
+
+      <p><strong>On the other hand:</strong> an example of how this carries into hiring appears in a study published last August in the journal <em>AI &amp; Society</em>. Researchers had ChatGPT assess the résumés of six fictional candidates with similar qualifications for two job postings — keeping the content identical and only swapping male and female names.</p>
+
+      <p class="pq">The same résumé: picked 23 times as "William Harris," <span class="neon">twice as "Jennifer Davies."</span></p>
+
+      <p>The candidate's experience didn't change — only the gender the system tied to it did. One small experiment doesn't prove every AI behaves the same way, but it makes the bias plain, and plainly unequal. Asked to judge a candidate's competence, the model decides differently based on the gender a name evokes.</p>
+
+      <h2>A technology that keeps women at a distance</h2>
+      <p>According to findings the International Labour Organization published in March, roughly 29% of occupations where women are the majority will be erased through exposure to generative AI. For male-dominated occupations, the figure is 16%.</p>
+
+      <p><strong>Important detail:</strong> this doesn't mean 29% of women will lose their jobs. Some tasks within a role becoming doable by AI is not the same as the role vanishing. The same shift can mean relief from tedious work for one person, and heavier workloads or thinner job security for another.</p>
+
+      <p>Which outcome wins out will be decided as much by employers' choices as by the technology itself. In a business world ruled by cost, the results aren't hard to guess.</p>
+
+      <p>To understand how women are positioned inside technology, we can go back even further than cinema. In literary history, Villiers de l'Isle-Adam's 1886 novel <em>L'Ève future</em> (The Future Eve) has the character Edison build an artificial woman — imagined as an improved version of the real one.</p>
+
+      <p>And in 1927's <em>Metropolis</em>, a robot that takes on Maria's face becomes a tool of political manipulation.</p>
+
+      <p>These works show that the urge to reproduce and control the female image has a long cultural history.</p>
+
+      <p>The relationship between representation and reality that Jean Baudrillard explores in <em>Simulacra and Simulation</em> offers yet another angle on personalized artificial companions.</p>
+
+      <p>So does an intimacy shaped entirely around the user's wishes change what we expect from real relationships? Does a perpetually agreeable partner teach us to see the differences and boundaries that make up a real relationship as glitches? Baudrillard didn't say these things about AI directly — but they're the questions he raises today.</p>
+
+      <p><strong>For example:</strong> Samantha in <em>Her</em> doesn't stay in place meeting Theodore's needs; as her own curiosity and relationships grow, she moves past his expectations. Even as an AI, she stops being an obedient lover and becomes trouble.</p>
+
+      <p>In 2013, talking to a brilliant virtual assistant that spoke like a human felt like something only films could offer; now it's real. Who promises that today's AI won't become trouble too? And more importantly: what does giving that trouble a female face do to how women are seen in the real world?</p>
+
+      <h2>What AI costs women</h2>
+      <p>Let's be honest: plenty of gender bias is woven into AI's very structure. A model is only as good as the data it's fed — which is why half of AI models still tie women to domestic duties, caregiving, and sexualized roles, while pairing men with leadership, business, and professional success.</p>
+
+      <p><strong>More:</strong> race-based bias stacks on top of gender bias. More than a quarter of the models examined carried both, which makes them even less safe for non-white women. Deepfake technology — among the gravest threats — and many AI models disproportionately sexualize women and digitally strip their images.</p>
+
+      <p>Women are also more likely than men to be harmed by climate change. And AI keeps drawing criticism for worsening the climate crisis through its hunger for data centers. In reports released this year, the United Nations stresses that existing social, economic, and gender-based inequalities leave women disproportionately exposed to climate change.</p>
+
+      <p><strong>Along with this:</strong> the data centers powering AI account for about 1% of global greenhouse-gas emissions, and a single AI query uses roughly ten times the energy of an ordinary internet search.</p>
+
+      <p>Working life shows the same tilt: female-dominated jobs are the ones at risk. Roles where women are concentrated — administrative assistance, customer service — are nearly twice as likely to be hit by generative AI as male-dominated fields like construction and manufacturing.</p>
+
+      <p><strong>What it means:</strong> AI is changing the world — but, like every great force that shapes society, from war to climate change, it bends women's lives more sharply. The foundations of a technology meant to transform every corner of life are being poured in a world already marked by gender inequality. That makes it more likely to reinforce those inequalities than to question them. And that, in turn, makes AI a feminist issue.</p>
+
+      <div class="endmark">
+        Originally published in <a href="https://aposto.com/" target="_blank" rel="noopener">Aposto News</a>, October 13, 2026. By Çiğdem Öztabak, Founder of Humanarium. <a href="journal.html">More in Writing →</a>
+      </div>
+    </div>
+  </article>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Humanarium</div>
+      <div class="fmeta label"><a href="journal.html">Writing</a> · A Club for Humans · New York · MMXXVI</div>
+    </div>
+  </footer>
+
+</body>
+</html>
